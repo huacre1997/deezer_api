@@ -11,15 +11,20 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 # https://docs.python.org/3/library/datetime.html#timedelta-objects
 from datetime import timedelta
-import pathlib
-import environ
 from pathlib import Path
+import pathlib
+# https://django-environ.readthedocs.io/en/latest/
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
+# Ubica y lee nuestro archivo .env
+if pathlib.Path('.env').is_file():
+    environ.Env.read_env('.env')
 
+# Toma la variables de nuestro .env
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -56,6 +61,7 @@ LOCAL_APPS = [
     "apps.songs",
     "apps.artists",
     "apps.albums",
+    "apps.users",
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -100,8 +106,6 @@ WSGI_APPLICATION = 'deezer_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if pathlib.Path('.env').is_file():
-    environ.Env.read_env('.env')
 DATABASES = {
     'default': env.db('DATABASE_URL'),
 }
@@ -112,12 +116,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
 }
 
 # Simple JWT
@@ -127,8 +125,6 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
-
-
 }
 
 # Password validation

@@ -1,8 +1,6 @@
-from email.policy import default
-from rest_framework.serializers import ModelSerializer
-from apps.albums.models import Genre, Album
+from utils.constants import EXCLUDED_FIELDS
 from rest_framework import serializers
-from utils.choices import Type
+from apps.albums.models import Genre, Album
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -13,7 +11,7 @@ class GenreSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Genre
-        fields = ('id', 'name', 'picture', 'type')
+        exclude = [] + EXCLUDED_FIELDS
 
 
 class AlbumSerializer(serializers.ModelSerializer):
@@ -22,4 +20,4 @@ class AlbumSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Album
-        fields = "__all__"
+        exclude = [] + EXCLUDED_FIELDS

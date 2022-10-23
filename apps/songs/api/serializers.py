@@ -1,5 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from apps.songs.models import Song
+from utils.constants import EXCLUDED_FIELDS
 
 
 class SongSerializer(ModelSerializer):
@@ -8,4 +9,4 @@ class SongSerializer(ModelSerializer):
     """
     class Meta:
         model = Song
-        fields = '__all__'
+        exclude = [] + EXCLUDED_FIELDS

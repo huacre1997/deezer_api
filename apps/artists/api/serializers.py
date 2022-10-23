@@ -1,8 +1,6 @@
-from email.policy import default
-from rest_framework.serializers import ModelSerializer
-from apps.artists.models import Artist
 from rest_framework import serializers
-from utils.choices import Type
+from apps.artists.models import Artist
+from utils.constants import EXCLUDED_FIELDS
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -11,4 +9,4 @@ class ArtistSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Artist
-        fields = "__all__"
+        exclude = [] + EXCLUDED_FIELDS

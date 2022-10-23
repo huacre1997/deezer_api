@@ -2,7 +2,7 @@ from django.db import models
 # link gettext - > https://docs.djangoproject.com/en/4.1/topics/i18n/translation/
 from django.utils.translation import gettext as _
 from utils.choices import Type
-from utils.models import ModelBase
+from utils.base.models import ModelBase
 from apps.artists.models import Artist
 from apps.albums.models import Album
 
@@ -29,8 +29,8 @@ class Song(ModelBase):
         "Artista"))
     album = models.ForeignKey(Album, blank=False, null=False, related_name="album_artist", on_delete=models.CASCADE, verbose_name=_(
         "Album"))
-    type = models.CharField(max_length=10, null=False, default=None, blank=False,
-                            choices=Type.choices, verbose_name=_("Tipo"))
+    type = models.CharField(max_length=10, null=False,
+                            default=Type.SONG, blank=False, verbose_name=_("Tipo"))
 
     def __str__(self):
         """

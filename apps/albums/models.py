@@ -1,8 +1,9 @@
+from email.policy import default
 from django.db import models
 # link gettext - > https://docs.djangoproject.com/en/4.1/topics/i18n/translation/
 from django.utils.translation import gettext as _
 
-from utils.models import ModelBase
+from utils.base.models import ModelBase
 from utils.choices import Type
 
 from apps.artists.models import Artist
@@ -14,8 +15,8 @@ class Genre(ModelBase):
         max_length=100, blank=False, null=True, verbose_name=_("Nombre"))
     picture = models.URLField(max_length=200, blank=False,
                               null=True, verbose_name=_("Url"))
-    type = models.CharField(max_length=10, null=False, default=None, blank=False,
-                            choices=Type.choices, verbose_name=_("Tipo"))
+    type = models.CharField(max_length=10, null=False, blank=False,
+                            default=Type.GENRE, verbose_name=_("Tipo"))
 
     def __str__(self):
         """
@@ -56,8 +57,8 @@ class Album(ModelBase):
         "Artista"))
     genre = models.ForeignKey(Genre, null=False, blank=False, related_name="genre_album", on_delete=models.CASCADE, verbose_name=_(
         "Género"))
-    type = models.CharField(max_length=10, null=False, default=None, blank=False,
-                            choices=Type.choices, verbose_name=_("Tipo"))
+    type = models.CharField(max_length=10, null=False,
+                            default=Type.ALBUM, blank=False, verbose_name=_("Tipo"))
 
     def __str__(self):
         """
@@ -76,4 +77,3 @@ class Album(ModelBase):
 
         # Texto que aparecerá en nuestra aplicación en plural.
         verbose_name_plural = "Albums"
-        

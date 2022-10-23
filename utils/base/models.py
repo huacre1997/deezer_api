@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext as _
 
 
 class ModelBase(models.Model):
@@ -23,5 +22,5 @@ class ModelBase(models.Model):
                                    on_delete=models.SET_NULL, verbose_name="Modificado por")
 
     class Meta:
-        # Propiedad que indica que será una clase base para otros modelos
+        # Propiedad que indica que será una clase modelo para otros modelos
         abstract = True

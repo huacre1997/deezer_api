@@ -55,6 +55,9 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
     "debug_toolbar",
+    'drf_yasg',
+
+
 ]
 # Aplicaciones locales que se creó
 LOCAL_APPS = [
@@ -106,9 +109,22 @@ WSGI_APPLICATION = 'deezer_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': env.db('DATABASE_URL'),
+# }
 DATABASES = {
-    'default': env.db('DATABASE_URL'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "deezer_api",
+        "HOST": "localhost",
+        "USER": "postgres",
+        "PASSWORD": "123",
+        "PORT": 5432
+    }
 }
+AUTHENTICATION_BACKENDS = ['apps.users.auth_backend.EmailBackend']
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Django Rest Framework
 # https://www.django-rest-framework.org/#installation
@@ -117,11 +133,21 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-
+# Swagger
+# https://drf-yasg.readthedocs.io/en/stable/readme.html
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    }
+}
 # Simple JWT
 # https://django-rest-framework-simplejwt.readthedocs.io/en/latest/#
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,

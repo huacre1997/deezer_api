@@ -1,7 +1,7 @@
 from django.db import models
 # link gettext - > https://docs.djangoproject.com/en/4.1/topics/i18n/translation/
 from django.utils.translation import gettext as _
-from utils.models import ModelBase
+from utils.base.models import ModelBase
 from utils.choices import Type
 
 
@@ -19,8 +19,8 @@ class Artist(ModelBase):
     nb_fan = models.IntegerField(
         null=False, blank=False, verbose_name=_("Número de fans"))
     radio = models.BooleanField(default=True, verbose_name=_("Radio"))
-    type = models.CharField(max_length=10, null=False, default=None, blank=False,
-                            choices=Type.choices, verbose_name=_("Tipo"))
+    type = models.CharField(max_length=10, null=False, default=Type.ARTIST, blank=False,
+                            verbose_name=_("Tipo"))
 
     def __str__(self):
         """

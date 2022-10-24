@@ -29,6 +29,7 @@ class GenreViewSet(BaseViewSet):
 
     ordering_fields = ['id', 'name']
 
+    # Configuración para que el VIEW solo tenga los métodos asignados.
     http_method_names = ["get", "post", "put"]
 
 
@@ -50,4 +51,5 @@ class AlbumViewSet(BaseViewSet):
 
     ordering_fields = ['id', 'name']
 
+    # Configuración para que el VIEW solo tenga los métodos asignados.
     http_method_names = ["get", "post", "put"]

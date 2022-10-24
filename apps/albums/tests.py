@@ -7,7 +7,7 @@ from apps.users.models import CustomUser
 from apps.albums.api.views import AlbumViewSet
 
 
-class SongViewsetTestCase(TestCase):
+class AlbumViewsetTestCase(TestCase):
     # Comando para cargar la data de prueba para los tests
     # python manage.py dumpdata songs > fixtures/songs.json
 

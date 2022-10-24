@@ -40,6 +40,9 @@ el algoritmo **HS256**.
 - Python 3.10.7
 - Django 4.1.2
 - Django REST Framework 3.14.0
+- drf-yasg 1.21.4
+- djangorestframework-simplejwt 5.2.2
+
 
 ## Instalación
 <a name="installation"></a>

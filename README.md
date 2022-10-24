@@ -355,12 +355,20 @@ Response:
     "type": "artist"
 }
 ```
+## Test Endpoints
+Para ejecutar los test unitarios ejecutar los siguientes comandos.
 
+App Songs
+```
+python manage.py test apps.songs.tests --keepdb
+```
+App Albums
+```
+python manage.py test apps.albums.tests --keepdb
+```
+App Artist
+```
+python manage.py test apps.artists.tests --keepdb
+```
 Footer
 © 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs

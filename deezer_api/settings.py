@@ -109,19 +109,10 @@ WSGI_APPLICATION = 'deezer_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': env.db('DATABASE_URL'),
-# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "deezer_api",
-        "HOST": "localhost",
-        "USER": "postgres",
-        "PASSWORD": "123",
-        "PORT": 5432
-    }
+    'default': env.db('DATABASE_URL'),
 }
+
 AUTHENTICATION_BACKENDS = ['apps.users.auth_backend.EmailBackend']
 
 AUTH_USER_MODEL = 'users.CustomUser'

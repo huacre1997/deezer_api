@@ -1,0 +1,46 @@
+[
+    {
+        "model": "albums.genre",
+        "pk": 3,
+        "fields": {
+            "is_active": true,
+            "created_at": "2022-10-23T02:43:13.824Z",
+            "updated_at": "2022-10-23T02:43:13.824Z",
+            "name": "Dance",
+            "picture": "https://api.deezer.com/genre/113/image",
+            "type": "genre"
+        }
+    },
+    {
+        "model": "albums.genre",
+        "pk": 4,
+        "fields": {
+            "is_active": true,
+            "created_at": "2022-10-23T02:45:05.636Z",
+            "updated_at": "2022-10-23T02:45:05.636Z",
+            "name": "Rock",
+            "picture": "https://api.deezer.com/genre/152/image",
+            "type": "genre"
+        }
+    },
+    {
+        "model": "albums.album",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "created_at": "2022-10-23T18:48:49.608Z",
+            "updated_at": "2022-10-23T18:50:45.871Z",
+            "title": "Discovery",
+            "link": "https://www.deezer.com/album/302127",
+            "label": "Daft Life Ltd./ADA France",
+            "nb_tracks": 14,
+            "release_data": "2001-03-07",
+            "duration": 3660,
+            "fans": 263506,
+            "available": true,
+            "artist": 1,
+            "genre": 3,
+            "type": "album"
+        }
+    }
+]

@@ -13,7 +13,18 @@ from rest_framework.decorators import action
 
 class GenreViewSet(BaseViewSet):
     """
-    Clase ViewSet de Genre
+       retrieve:
+       Busca un género por su pk
+
+       list:
+       Lista las canciones con estado is_active=True 
+
+       create:
+       Crea un género
+
+       update:
+       Actualiza un género
+
     """
 
     # Obtenemos los datos que queremos devolver.
@@ -25,19 +36,31 @@ class GenreViewSet(BaseViewSet):
     # Configuración para que el VIEW sea utilizado por usuarios autenticados.
     permission_classes = [IsAuthenticated]
 
+    # Campos para busqueda
     search_fields = ['name']
 
-    ordering_fields = ['id', 'name']
+    # Campos para ordenar response
+    ordering_fields = ['id']
 
-    # Configuración para que el VIEW solo tenga los métodos asignados.
+    # Métodos que genera el Viewset
     http_method_names = ["get", "post", "put"]
 
 
 class AlbumViewSet(BaseViewSet):
     """
-    Clase ViewSet de Genre
-    """
+       retrieve:
+       Busca un album por su pk
 
+       list:
+       Lista los albums con estado is_active=True 
+
+       create:
+       Crea un album
+
+       update:
+       Actualiza un album
+
+    """
     # Obtenemos los datos que queremos devolver.
     queryset = Album.objects.all()
 
@@ -47,9 +70,11 @@ class AlbumViewSet(BaseViewSet):
     # Configuración para que el VIEW sea utilizado por usuarios autenticados.
     permission_classes = [IsAuthenticated]
 
-    search_fields = ['name']
+    # Campos para busqueda
+    search_fields = ['title']
 
-    ordering_fields = ['id', 'name']
+    # Campos para ordenar response
+    ordering_fields = ['id']
 
-    # Configuración para que el VIEW solo tenga los métodos asignados.
+    # Métodos que genera el Viewset
     http_method_names = ["get", "post", "put"]

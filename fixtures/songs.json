@@ -1,0 +1,42 @@
+[
+    {
+        "model": "songs.song",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "created_at": "2022-10-23T18:51:52.766Z",
+            "updated_at": "2022-10-23T18:51:52.766Z",
+            "title": "Harder, Better, Faster, Stronger",
+            "title_short": "Harder, Better, Faster, Stronger",
+            "link": "https://www.deezer.com/track/3135556",
+            "duration": 224,
+            "track_position": 4,
+            "disk_number": 1,
+            "rank": 770049,
+            "release_date": "2005-01-24",
+            "artist": 1,
+            "album": 1,
+            "type": "track"
+        }
+    },
+    {
+        "model": "songs.song",
+        "pk": 2,
+        "fields": {
+            "is_active": true,
+            "created_at": "2022-10-23T18:53:52.726Z",
+            "updated_at": "2022-10-23T18:53:52.726Z",
+            "title": "One More Time",
+            "title_short": "One More Time",
+            "link": "https://www.deezer.com/track/3135553",
+            "duration": 3,
+            "track_position": 3,
+            "disk_number": 2,
+            "rank": 686171,
+            "release_date": "2005-01-24",
+            "artist": 1,
+            "album": 1,
+            "type": "track"
+        }
+    }
+]

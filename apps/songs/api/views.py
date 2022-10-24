@@ -12,7 +12,18 @@ from rest_framework.decorators import action
 
 class SongViewSet(BaseViewSet):
     """
-    Clase ViewSet de Genre
+       retrieve:
+       Busca una canción por su pk
+
+       list:
+       Lista las canciones con estado is_active=True 
+
+       create:
+       Crea una canción
+
+       update:
+       Actualiza una canción
+
     """
 
     # Obtenemos los datos que queremos devolver.
@@ -24,10 +35,13 @@ class SongViewSet(BaseViewSet):
     # Configuración para que el VIEW sea utilizado por usuarios autenticados.
     permission_classes = [permissions.IsAuthenticated]
 
+    # Campos para busqueda
     search_fields = ['title']
 
-    ordering_fields = ['id', 'title']
+    # Campos para ordenar response
+    ordering_fields = ['id']
 
+    # Métodos que genera el Viewset
     http_method_names = ["get", "post", "put"]
 
     @action(detail=False, methods=['get'], name='Buscar canción')

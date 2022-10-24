@@ -12,7 +12,18 @@ from rest_framework.decorators import action
 
 class ArtistViewSet(BaseViewSet):
     """
-    Clase ViewSet de Genre
+       retrieve:
+       Busca un artista por su pk
+
+       list:
+       Lista las canciones con estado is_active=True 
+
+       create:
+       Crea un artista
+
+       update:
+       Actualiza un artista
+
     """
 
     # Obtenemos los datos que queremos devolver.
@@ -24,8 +35,11 @@ class ArtistViewSet(BaseViewSet):
     # Configuración para que el VIEW sea utilizado por usuarios autenticados.
     permission_classes = [IsAuthenticated]
 
+    # Campos para busqueda
     search_fields = ['name']
 
-    ordering_fields = ['id', 'name']
+    # Campos para ordenar response
+    ordering_fields = ['id']
 
+    # Métodos que genera el Viewset
     http_method_names = ["get", "post", "put"]

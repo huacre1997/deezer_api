@@ -1,9 +1,8 @@
 from rest_framework import routers
 from .views import ArtistViewSet
-from django.urls import path
-from django.conf.urls import include
 
+app_name = "artists"
 router = routers.DefaultRouter()
-router.register('artist', ArtistViewSet)
+router.register('artist', ArtistViewSet, basename="artist")
 
 urlpatterns = router.urls

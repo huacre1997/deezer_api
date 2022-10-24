@@ -12,8 +12,8 @@ Esta aplicación backend es un RestFull API basada en [Deezer API](https://devel
 
 * [Tech Stack](#techstack)
 * [Requeriments](#requirements)
-* [Environment Variables](#env)
-* [Database Entity Model](#dbmodel)
+* [Instalación](#installation)
+* [Estructura](#structure)
 * Endpoints:
     * [API Login](#login)
     * [API Logout](#logout)
@@ -21,7 +21,7 @@ Esta aplicación backend es un RestFull API basada en [Deezer API](https://devel
     * [API Search song](#search_song)
     * [API Get Album](#get_album)
     * [API Get Artist](#get_artist)
-   
+* [Test Endpoints](#test)
 ## Tech Stack
 
 - **RESTful API:** RESTful API desarrollado en Python con el Framework Django
@@ -42,6 +42,8 @@ el algoritmo **HS256**.
 - Django REST Framework 3.14.0
 
 ## Instalación
+<a name="installation"></a>
+
 Después de clonar el repositorio, tienes que crear un entorno virtual, para tener una instalación limpia de python.
 Puedes hacer esto ejecutando el comando
 ```
@@ -73,6 +75,8 @@ Ejecutamos el programa
 python manage.py runserver
 ```
 ## Estructura
+<a name="structure"></a>
+
 En una API RESTful, los endpoints (URLs) definen la estructura de la API y cómo los usuarios finales acceden a los datos de nuestra aplicación utilizando los métodos HTTP - GET, POST, PUT, DELETE. Los puntos finales deben organizarse lógicamente en torno a _colecciones_ y _elementos_, que son recursos.
 
 En nuestro caso, tenemos : genr,album,artist,song, por lo que utilizaremos las siguientes URLs - `/song/` y `/song/<id>` ,etc para las colecciones y los elementos, respectivamente:
@@ -356,6 +360,8 @@ Response:
 }
 ```
 ## Test Endpoints
+<a name="test"></a>
+
 Para ejecutar los test unitarios ejecutar los siguientes comandos.
 
 App Songs

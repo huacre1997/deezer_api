@@ -1,4 +1,8 @@
+
+
 # RESTful API - Deezer API
+
+
 
 ## Overview
 
@@ -71,16 +75,16 @@ python manage.py runserver
 ## Estructura
 En una API RESTful, los endpoints (URLs) definen la estructura de la API y cómo los usuarios finales acceden a los datos de nuestra aplicación utilizando los métodos HTTP - GET, POST, PUT, DELETE. Los puntos finales deben organizarse lógicamente en torno a _colecciones_ y _elementos_, que son recursos.
 
-En nuestro caso, tenemos : genr,album,artist,song, por lo que utilizaremos las siguientes URLs - `/song/` y `/song/<id>` para las colecciones y los elementos, respectivamente:
+En nuestro caso, tenemos : genr,album,artist,song, por lo que utilizaremos las siguientes URLs - `/song/` y `/song/<id>` ,etc para las colecciones y los elementos, respectivamente:
 
 Endpoint |HTTP Method | CRUD Method | Result
 -- | -- |-- |--
-`artist` | GET | READ | Trae todos lo artistas
+`artist` | GET | READ | Trae todos los artistas
 `artist/:id` | GET | READ | Obtiene un artista
 `artist`| POST | CREATE | Crea un nuevo artista
-`artist/:id` | PUT | UPDATE | Actualzia un artista
-`artist/:id/desactivate/` | PUT | UPDATE  | Elimina de manera lógica un artista
-`artist/:id/restore/` | PUT | UPDATE | Restaruad un artista eliminado
+`artist/:id` | PUT | UPDATE | Actualiza un artista
+`artist/:id/desactivate/` | PUT | UPDATE  | Elimina de manera lógica un artista cambiando su estado a False
+`artist/:id/restore/` | PUT | UPDATE | Restaura un artista eliminado cambiando su estado a True
 
 ## Endpoints
 <a name="login"></a>
@@ -150,7 +154,8 @@ Response:
 POST /register
 ```
 
-Este endpoint es usado para registrar usuarios
+Este endpoint es usado para registrar usuarios.
+
 Body:
 
 ```json
@@ -184,7 +189,7 @@ GET /song/search/?q=daft
 ```
 Este endpoint es usado para buscar una canción tomando como referencia su título o el nombre de un artista
 
-Example Response:
+Response:
 
 ```json
 [
@@ -293,9 +298,9 @@ Example Response:
 <a name="get_album"></a>
 ### Endpoint: Get Album
 ```
-GET /album/1
+GET /album/1/
 ```
-Endpoint usado para traer un album con su pk
+Endpoint usado para traer un album con su id
 
 Response:
 ```json
@@ -331,10 +336,12 @@ Response:
 <a name="get_artist"></a>
 ### Endpoint: Get Artist
 ```
-GET /artist/3/
+GET /artist/1/
 ```
-Endpoint usado para trae un artista con su id
-Example Response:
+Endpoint usado para traer un artista con su id.
+
+Response:
+
 
 ```json
 {
